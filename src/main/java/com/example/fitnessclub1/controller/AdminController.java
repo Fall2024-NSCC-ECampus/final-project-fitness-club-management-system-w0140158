@@ -68,9 +68,9 @@ public class AdminController {
             return "redirect:/admin/members/add"; // Redirect back to form
         }
 
-        adminService.addMember(member); // Ensure this is correctly implemented
+        adminService.addMember(member);
         redirectAttributes.addFlashAttribute("success", "Member added successfully!");
-        return "redirect:/admin/dashboard"; // Redirect to the dashboard
+        return "redirect:/admin/dashboard";
     }
 
 
@@ -81,7 +81,7 @@ public class AdminController {
             throw new NoSuchElementException("Member not found with ID: " + id);
         }
         model.addAttribute("member", member);
-        return "admin_edit_members"; // Show form to edit the member
+        return "admin_edit_members";
     }
 
     @PostMapping("/members/edit/{id}")
@@ -90,11 +90,11 @@ public class AdminController {
                              BindingResult result,
                              RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
-            return "admin_edit_members"; // Return to form if validation fails
+            return "admin_edit_members";
         }
-        adminService.updateMember(id, member); // Update member in service
+        adminService.updateMember(id, member);
         redirectAttributes.addFlashAttribute("success", "Member updated successfully!");
-        return "redirect:/admin/members"; // Redirect after successful update
+        return "redirect:/admin/members";
     }
 
     @GetMapping("/members/delete/{id}")
@@ -107,25 +107,21 @@ public class AdminController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Failed to delete member with ID: " + id);
         }
-        return "redirect:/admin/members"; // Redirect to members listing
+        return "redirect:/admin/members";
     }
-
-
-
-
 
     // Trainer Management
     @GetMapping("/trainers")
     public String listTrainers(Model model) {
         List<Trainer> trainers = adminService.getAllTrainers();
         model.addAttribute("trainers", trainers);
-        return "admin_trainers"; // Returns the trainers template
+        return "admin_trainers"; /
     }
 
     @GetMapping("/trainers/add")
     public String addTrainerForm(Model model) {
         model.addAttribute("trainer", new Trainer());
-        return "admin_add_trainers"; // Show form to add a new trainer
+        return "admin_add_trainers";
     }
 
     @PostMapping("/trainers/add")
@@ -134,12 +130,12 @@ public class AdminController {
                              RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             System.out.println("Validation errors: " + result.getAllErrors());
-            return "admin_add_trainers"; // Return to form if validation fails
+            return "admin_add_trainers";
         }
 
         System.out.println("Adding Trainer: " + trainer);
 
-        // Check for duplicate username
+
         if (adminService.trainerExists(trainer.getUsername())) {
             redirectAttributes.addFlashAttribute("error", "A trainer with this username already exists.");
             return "redirect:/admin/trainers/add"; // Redirect back to form

@@ -134,7 +134,7 @@ public class AuthController {
 
     private void populateCommonUserFields(User user, UserRegistrationDTO registrationDTO) {
         user.setUsername(registrationDTO.getUsername());
-        user.setPassword(registrationDTO.getPassword()); // Ensure the password is hashed in UserService
+        user.setPassword(registrationDTO.getPassword());
         user.setName(registrationDTO.getName());
     }
 }
