@@ -28,7 +28,7 @@ public class MemberController {
 
     @GetMapping("/dashboard")
     public String memberDashboard() {
-        return "member_dashboard";}
+        return "member/dashboard";}
 
     @GetMapping("/schedule")
     public String viewSchedule(Model model) {
