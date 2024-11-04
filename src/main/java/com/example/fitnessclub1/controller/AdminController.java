@@ -41,13 +41,13 @@ public class AdminController {
     public String listMembers(Model model) {
         List<Member> members = adminService.getAllMembers();
         model.addAttribute("members", members);
-        return "admin_members"; // Returns the members template
+        return "admin_members";
     }
 
     @GetMapping("/members/add")
     public String addMemberForm(Model model) {
         model.addAttribute("member", new Member());
-        return "admin_add_members"; // Show form to add a new member
+        return "admin_add_members";
     }
 
     @PostMapping("/members/add")
@@ -56,16 +56,16 @@ public class AdminController {
                             RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             System.out.println("Validation errors: " + result.getAllErrors());
-            return "admin_add_members"; // Return to form if validation fails
+            return "admin_add_members";
         }
 
-        // Log the member details before adding
+
         System.out.println("Adding member: " + member);
 
-        // Check for duplicate email
+
         if (adminService.memberExists(member.getEmail())) {
             redirectAttributes.addFlashAttribute("error", "A member with this email already exists.");
-            return "redirect:/admin/members/add"; // Redirect back to form
+            return "redirect:/admin/members/add";
         }
 
         adminService.addMember(member);

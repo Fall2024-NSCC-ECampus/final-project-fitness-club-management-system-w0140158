@@ -17,4 +17,5 @@ public interface TrainerService {
     boolean trainerEmailExists(String email);
     Optional<Object> findByUsername(String username);
     List<Member> getAllMembersForTrainer(Long id);
+
 }
