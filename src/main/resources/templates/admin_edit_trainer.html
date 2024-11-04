@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Edit Trainer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Edit Trainer</h1>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/admin/trainers/edit/{id}(id=${trainer.id})}" method="post" th:object="${trainer}">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" th:field="*{username}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" th:field="*{password}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" th:field="*{name}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" th:field="*{email}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" th:field="*{phone}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="specialization">Specialization:</label>
+                    <input type="text" id="specialization" th:field="*{specialization}" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="shift">Shift:</label>
+                    <input type="text" id="shift" th:field="*{shift}" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Trainer</button>
+                <a href="/admin/trainers" class="btn btn-secondary ml-2">Back to Trainers</a>
+                <div th:if="${error}" th:text="${error}" class="text-danger mt-3"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

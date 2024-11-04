@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${pageTitle}">Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<th:block th:replace="~{header :: header}"></th:block>
+
+<div class="container mt-5">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Members Management Section -->
+    <h2>Members Management</h2>
+    <div class="mb-3">
+        <a class="btn btn-success me-2" th:href="@{/admin/members/add}">Add Member</a>
+        <a class="btn btn-warning me-2" th:href="@{/admin/members}">View Members</a>
+        <a class="btn btn-danger me-2" th:href="@{/admin/members/delete/{id}(id=1)}">Delete Member</a> <!-- Replace ID with appropriate value -->
+    </div>
+
+    <div th:if="${error}" class="alert alert-danger" role="alert" th:text="${error}"></div>
+    <p th:if="${#lists.isEmpty(members)}">No members found.</p>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Shift</th>
+            <th>Specialization</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${members}">
+            <td th:text="${member.id}"></td>
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.email}"></td>
+            <td th:text="${member.phone}"></td>
+            <td th:text="${member.weight}"></td>
+            <td th:text="${member.height}"></td>
+            <td th:text="${member.shift}"></td>
+            <td th:text="${member.specialization}"></td>
+            <td>
+                <a class="btn btn-warning btn-sm me-1" th:href="@{/admin/members/edit/{id}(id=${member.id})}">Modify</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/admin/members/delete/{id}(id=${member.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Trainers Management Section -->
+    <h2>Trainers Management</h2>
+    <div class="mb-3">
+        <a class="btn btn-success me-2" th:href="@{/admin/trainers/add}">Add Trainer</a>
+        <a class="btn btn-warning me-2" th:href="@{/admin/trainers}">View Trainers</a>
+        <a class="btn btn-danger me-2" th:href="@{/admin/trainers/delete/{id}(id=1)}">Delete Trainer</a> <!-- Replace ID with appropriate value -->
+    </div>
+
+    <div th:if="${error}" class="alert alert-danger" role="alert" th:text="${error}"></div>
+    <p th:if="${#lists.isEmpty(trainers)}">No trainers found.</p>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Specialization</th>
+            <th>Shift</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="trainer : ${trainers}">
+            <td th:text="${trainer.id}"></td>
+            <td th:text="${trainer.username}"></td>
+            <td th:text="${trainer.name}"></td>
+            <td th:text="${trainer.email}"></td>
+            <td th:text="${trainer.phone}"></td>
+            <td th:text="${trainer.specialization}"></td>
+            <td th:text="${trainer.shift}"></td>
+            <td>
+                <a class="btn btn-warning btn-sm me-1" th:href="@{/admin/trainers/edit/{id}(id=${trainer.id})}">Modify</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/admin/trainers/delete/{id}(id=${trainer.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

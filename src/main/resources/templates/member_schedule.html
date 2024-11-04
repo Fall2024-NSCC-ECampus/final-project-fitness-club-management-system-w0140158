@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Schedule</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Class</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    <th:block th:each="schedule : ${schedules}">
+        <tr>
+            <td th:text="${schedule.id}"></td>
+            <td th:text="${schedule.className}"></td>
+            <td th:text="${schedule.date}"></td>
+            <td th:text="${schedule.time}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

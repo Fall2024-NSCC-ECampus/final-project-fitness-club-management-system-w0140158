@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fitness Club - Login</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <h3 class="text-center mb-4">Fitness Club Login</h3>
+            <form th:action="@{/auth/login}" method="post" th:object="${user}">
+                <!-- User Type Dropdown -->
+                <div class="mb-3">
+                    <label for="userType" class="form-label">User Type</label>
+                    <select id="userType" name="userType" class="form-select" required>
+                        <option value="">Select User Type</option>
+                        <option value="ADMIN">Admin</option>
+                        <option value="MEMBER">Member</option>
+                        <option value="TRAINER">Trainer</option>
+                    </select>
+                </div>
+
+                <!-- Username Field -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required/>
+                </div>
+
+                <!-- Password Field -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required/>
+                </div>
+
+                <!-- Error and Logout Messages -->
+                <div th:if="${param.error}" class="alert alert-danger">
+                    Invalid username or password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    You have been logged out.
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

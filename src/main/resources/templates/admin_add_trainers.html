@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add Trainer</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+
+<div class="container mt-5">
+    <h1>Add New Trainer</h1>
+
+    <!-- Back to Dashboard Button -->
+    <div class="mb-3">
+        <a class="btn btn-primary" th:href="@{/admin/dashboard}">Back to Dashboard</a>
+    </div>
+
+    <form th:action="@{/admin/trainers/add}" th:object="${trainer}" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" id="username" th:field="*{username}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" th:field="*{password}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" th:field="*{email}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="text" id="phone" th:field="*{phone}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="specialization" class="form-label">Specialization:</label>
+            <input type="text" id="specialization" th:field="*{specialization}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="shift" class="form-label">Shift:</label>
+            <input type="text" id="shift" th:field="*{shift}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Trainer</button>
+        <div th:if="${error}" class="alert alert-danger mt-3" th:text="${error}"></div>
+    </form>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
