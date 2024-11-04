@@ -17,9 +17,8 @@ public abstract class AttendanceService {
 
     public abstract List<Attendance> getAttendanceByMemberId(Long memberId);
 
-    public Attendance markAttendance(Attendance attendance) {
+    public void markAttendance(Attendance attendance) {
         attendanceRepository.save(attendance);
-        return attendance;
     }
 
     public List<Attendance> getAttendancesByMemberId(Long memberId) {

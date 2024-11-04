@@ -28,31 +28,26 @@ public class AdminService {
     }
 
     public void addMember(Member member) {
-        // Ensure all necessary fields are validated before saving
         memberRepository.save(member);
     }
 
     public boolean memberExists(String email) {
-        // Checks if a member with the given email exists
         return memberRepository.findByEmail(email).isPresent();
     }
 
     public Member getMemberById(Long id) {
-        // Fetch a member by ID, return null if not found
         return memberRepository.findById(id).orElse(null);
     }
 
     public void updateMember(Long id, @Valid Member member) {
-        // Check if member exists and update their details
         if (!memberRepository.existsById(id)) {
             throw new RuntimeException("Member not found");
         }
-        member.setId(id); // Ensure the ID is set for the update
+        member.setId(id);
         memberRepository.save(member);
     }
 
     public void deleteMember(Long id) {
-        // Attempt to delete a member by ID, handle any potential issues
         if (!memberRepository.existsById(id)) {
             throw new RuntimeException("Member not found");
         }
@@ -82,7 +77,7 @@ public class AdminService {
     }
 
     public void updateTrainer(Long id, Trainer trainer) {
-        trainer.setId(id); // Set the ID to the existing trainer
+        trainer.setId(id);
         trainerRepository.save(trainer);
     }
 

@@ -1,4 +1,3 @@
-// src/main/java/com/example/fitnessclub1/dto/UserRegistrationDTO.java
 package com.example.fitnessclub1.entity;
 
 import lombok.Data;
@@ -18,14 +17,14 @@ public class UserRegistrationDTO {
     @NotBlank(message = "User type is required")
     private String userType; // ADMIN, TRAINER, MEMBER
 
-    // Common fields
+
     @NotBlank(message = "Name is required")
     private String name;
 
     private String shift;
     private String specialization;
 
-    // Member-specific fields
+
     @Email(message = "Invalid email address")
     private String email;
 

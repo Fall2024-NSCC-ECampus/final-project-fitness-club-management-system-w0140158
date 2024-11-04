@@ -1,4 +1,3 @@
-// src/main/java/com/example/fitnessclub1/impl/TrainerServiceImpl.java
 package com.example.fitnessclub1.impl;
 
 import com.example.fitnessclub1.entity.Member;
@@ -67,11 +66,11 @@ public class TrainerServiceImpl implements TrainerService {
 
     @Override
     public Optional<Object> findByUsername(String username) {
-        return Optional.empty(); // Implement logic if needed
+        return Optional.empty();
     }
 
     @Override
     public List<Member> getAllMembersForTrainer(Long id) {
-        return List.of(); // Implement logic if needed
+        return List.of();
     }
 }

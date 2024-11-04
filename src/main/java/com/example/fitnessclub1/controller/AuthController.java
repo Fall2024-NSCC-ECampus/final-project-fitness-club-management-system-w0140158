@@ -34,7 +34,7 @@ public class AuthController {
         if (error != null) {
             model.addAttribute("error", "Invalid username or password.");
         }
-        return "login"; // Ensure login.html exists in templates folder
+        return "login";
     }
 
     @PostMapping("/login")
@@ -48,12 +48,12 @@ public class AuthController {
                 logger.info("User role: {}", role);
                 switch (role) {
                     case "ROLE_ADMIN":
-                        return "admin_dashboard"; // Admin dashboard view
+                        return "admin_dashboard";
                     case "ROLE_TRAINER":
-                        return "trainer_dashboard"; // Trainer dashboard view
+                        return "trainer_dashboard";
                     case "ROLE_MEMBER":
                     default:
-                        return "member_dashboard"; // Member dashboard view
+                        return "member_dashboard";
                 }
             }
         }
@@ -64,7 +64,7 @@ public class AuthController {
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("user", new UserRegistrationDTO());
-        return "register"; // Ensure register.html exists in templates folder
+        return "register";
     }
 
     @PostMapping("/register")

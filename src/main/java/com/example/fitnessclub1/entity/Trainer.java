@@ -1,4 +1,3 @@
-// src/main/java/com/example/fitnessclub1/entity/Trainer.java
 package com.example.fitnessclub1.entity;
 
 import jakarta.persistence.Column;
@@ -35,11 +34,11 @@ public class Trainer extends User {
     @Email(message = "Email should be valid")
     @NotBlank(message = "Email is mandatory")
     @Column(nullable = false, unique = true)
-    private String email; // Include email field
+    private String email;
 
     @NotBlank(message = "Phone is mandatory")
     @Column(nullable = false)
-    private String phone; // Include phone field
+    private String phone;
 
     public Trainer(String username, String password, String name, String specialization, String shift, String email, String phone) {
         super.setUsername(username);
@@ -47,13 +46,13 @@ public class Trainer extends User {
         this.name = name;
         this.specialization = specialization;
         this.shift = shift;
-        this.email = email; // Initialize email
-        this.phone = phone; // Initialize phone
+        this.email = email;
+        this.phone = phone;
 
-        // Add the role to the roles set in the User class
+
         Set<String> roles = new HashSet<>();
         roles.add("TRAINER");
-        super.setRoles(roles); // Ensure you have setRoles in User class
+        super.setRoles(roles);
     }
 
     @Override

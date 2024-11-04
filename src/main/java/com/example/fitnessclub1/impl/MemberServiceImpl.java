@@ -1,4 +1,3 @@
-// src/main/java/com/example/fitnessclub1/service/impl/MemberServiceImpl.java
 package com.example.fitnessclub1.impl;
 
 import com.example.fitnessclub1.entity.Member;
@@ -41,7 +40,7 @@ public class MemberServiceImpl extends MemberService {
     }
 
     public List<Member> getAllMembers() {
-        return memberRepository.findByUserType("MEMBER"); // Adjust according to your repository
+        return memberRepository.findByUserType("MEMBER");
     }
 
     @Override

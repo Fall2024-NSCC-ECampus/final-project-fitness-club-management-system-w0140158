@@ -1,4 +1,3 @@
-// src/main/java/com/example/fitnessclub1/service/TrainerService.java
 package com.example.fitnessclub1.service;
 
 import com.example.fitnessclub1.entity.Member;

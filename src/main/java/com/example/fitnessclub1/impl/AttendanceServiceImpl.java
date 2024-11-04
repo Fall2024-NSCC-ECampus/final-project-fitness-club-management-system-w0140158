@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service // Ensure this annotation is present
-public class AttendanceServiceImpl extends AttendanceService { // Correct implementation
+public class AttendanceServiceImpl extends AttendanceService {
 
     private final AttendanceRepository attendanceRepository;
 
@@ -29,9 +29,8 @@ public class AttendanceServiceImpl extends AttendanceService { // Correct implem
     }
 
     @Override
-    public Attendance markAttendance(Attendance attendance) {
+    public void markAttendance(Attendance attendance) {
         attendanceRepository.save(attendance);
-        return attendance;
     }
 
     @Override

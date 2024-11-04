@@ -1,4 +1,3 @@
-// src/main/java/com/example/fitnessclub1/repository/AttendanceRepository.java
 package com.example.fitnessclub1.repository;
 
 import com.example.fitnessclub1.entity.Attendance;

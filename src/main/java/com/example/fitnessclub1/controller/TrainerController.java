@@ -61,7 +61,7 @@ public class TrainerController {
 
         List<Member> members = trainerService.getAllMembersForTrainer(trainer.getId());
         model.addAttribute("members", members);
-        return "trainer/members"; // Ensure trainer/members.html exists
+        return "trainer/members";
     }
 
     @PostMapping("/attendance")
@@ -72,6 +72,6 @@ public class TrainerController {
 
         attendance.setTrainer(trainer);
         attendanceService.markAttendance(attendance);
-        return "redirect:/trainer/members"; // Adjust the redirect as necessary
+        return "redirect:/trainer/members";
     }
 }

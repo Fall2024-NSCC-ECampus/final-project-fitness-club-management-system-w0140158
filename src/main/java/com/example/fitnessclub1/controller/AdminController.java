@@ -115,7 +115,7 @@ public class AdminController {
     public String listTrainers(Model model) {
         List<Trainer> trainers = adminService.getAllTrainers();
         model.addAttribute("trainers", trainers);
-        return "admin_trainers"; /
+        return "admin_trainers";
     }
 
     @GetMapping("/trainers/add")
@@ -138,14 +138,14 @@ public class AdminController {
 
         if (adminService.trainerExists(trainer.getUsername())) {
             redirectAttributes.addFlashAttribute("error", "A trainer with this username already exists.");
-            return "redirect:/admin/trainers/add"; // Redirect back to form
+            return "redirect:/admin/trainers/add";
         }
 
-        adminService.addTrainer(trainer); // Save the new trainer
+        adminService.addTrainer(trainer);
         redirectAttributes.addFlashAttribute("success", "Trainer added successfully!");
 
-        // Redirect to the dashboard to see the updated list of trainers
-        return "redirect:/admin/dashboard"; // Redirect to the dashboard
+
+        return "redirect:/admin/dashboard";
     }
 
 
@@ -156,7 +156,7 @@ public class AdminController {
             throw new NoSuchElementException("Trainer not found with ID: " + id);
         }
         model.addAttribute("trainer", trainer);
-        return "admin_edit_trainer"; // Show form to edit the trainer
+        return "admin_edit_trainer";
     }
 
     @PostMapping("/trainers/edit/{id}")
@@ -165,11 +165,11 @@ public class AdminController {
                               BindingResult result,
                               RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
-            return "admin_edit_trainer"; // Return to form if validation fails
+            return "admin_edit_trainer";
         }
-        adminService.updateTrainer(id, trainer); // Update trainer in service
+        adminService.updateTrainer(id, trainer);
         redirectAttributes.addFlashAttribute("success", "Trainer updated successfully!");
-        return "redirect:/admin/trainers"; // Redirect after successful update
+        return "redirect:/admin/trainers";
     }
 
     @GetMapping("/trainers/delete/{id}")
@@ -180,6 +180,6 @@ public class AdminController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Failed to delete trainer with ID: " + id);
         }
-        return "redirect:/admin/trainers"; // Redirect to trainers listing
+        return "redirect:/admin/trainers";
     }
 }

@@ -1,4 +1,3 @@
-// src/main/java/com/example/fitnessclub1/entity/Member.java
 package com.example.fitnessclub1.entity;
 
 import jakarta.persistence.Column;

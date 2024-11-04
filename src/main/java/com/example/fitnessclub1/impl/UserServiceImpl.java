@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService, CommandLineRunner {
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getUsername())
                 .password(user.getPassword())
-                .authorities(user.getUserRole().split(",")) // Assuming roles are stored as a comma-separated string
+                .authorities(user.getUserRole().split(","))
                 .accountLocked(false)
                 .build();
     }
