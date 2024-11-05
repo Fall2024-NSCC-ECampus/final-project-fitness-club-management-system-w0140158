@@ -110,5 +110,3 @@ Contributions are welcome! Please fork the repository and open a pull request fo
 ## License
 This project is licensed under the MIT License. Feel free to use it in your own projects.
 
-## Contact
-For any inquiries, please contact [Patrick](mailto:patrick@example.com).
