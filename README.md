@@ -1,6 +1,6 @@
 ![Login Screen](login.png)
-![Edit Members](editmembers.png)
 ![Admin Dashboard](admindash.png)
+![Edit Members](editmembers.png)
 # Fitness Club Management System
 
 ## Overview
@@ -98,9 +98,9 @@ The application follows an MVC (Model-View-Controller) architecture:
 - `/auth/register` - User registration page.
 
 ## Screenshots
-- **Admin Dashboard**: Manage trainers, members, and view schedules.
-- **Trainer Dashboard**: View member attendance and schedules.
-- **Member Dashboard**: View personal profile and schedule.
+- **Login**: Manage trainers, members, and view schedules.
+- - **Admin Dashboard**: View personal profile and schedule.
+- **Edit Members**: View member attendance and schedules.
 
 ## Future Improvements
 - **Integration with Payment System**: Add functionality for membership payments.
