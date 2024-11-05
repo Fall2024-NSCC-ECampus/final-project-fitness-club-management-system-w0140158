@@ -1,3 +1,5 @@
+![Admin Dashboard](admindash.png)
+![Login Screen](login.png)
 # Fitness Club Management System
 
 ## Overview
