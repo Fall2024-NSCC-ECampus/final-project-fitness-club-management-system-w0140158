@@ -1,4 +1,5 @@
 ![Login Screen](login.png)
+![Edit Members](editmembers.png)
 ![Admin Dashboard](admindash.png)
 # Fitness Club Management System
 
