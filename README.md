@@ -1,6 +1,6 @@
-![Login Screen](login.png)
-![Admin Dashboard](admindash.png)
-![Edit Members](editmembers.png)
+![Admin login and Dashboard](springcrudscreenshots.png)
+![Add Member and Trainers](springcrudscreenshots.png)
+
 # Fitness Club Management System
 
 ## Overview
